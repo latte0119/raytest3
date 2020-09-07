@@ -55,7 +55,7 @@ inline double Vec3::getZ() const {
 inline double dot(const Vec3& lhs, const Vec3& rhs) {
     return lhs.x * rhs.x +
            lhs.y * rhs.y +
-           lhs.z * rhs.z;
+           lhs.z + rhs.z;
 }
 
 inline Vec3 cross(const Vec3& lhs, const Vec3& rhs) {

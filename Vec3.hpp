@@ -1,9 +1,13 @@
 #pragma once
 
+#include <iostream>
+
 struct Vec3 {
     Vec3();
     explicit Vec3(double);
     Vec3(double, double, double);
+
+    friend std::ostream& operator<<(std::ostream&, const Vec3&);
 
     Vec3 operator-() const;
 
@@ -50,8 +54,8 @@ inline double Vec3::getZ() const {
 
 inline double dot(const Vec3& lhs, const Vec3& rhs) {
     return lhs.x * rhs.x +
-           lhs.y + rhs.y +
-           lhs.z + rhs.z;
+           lhs.y * rhs.y +
+           lhs.z * rhs.z;
 }
 
 inline Vec3 cross(const Vec3& lhs, const Vec3& rhs) {

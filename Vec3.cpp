@@ -4,6 +4,11 @@ Vec3::Vec3() : x(0.0), y(0.0), z(0.0) {}
 Vec3::Vec3(const double _x) : x(_x), y(_x), z(_x) {}
 Vec3::Vec3(const double _x, const double _y, const double _z) : x(_x), y(_y), z(_z) {}
 
+std::ostream& operator<<(std::ostream& ost, const Vec3& p) {
+    ost << "[ " << p.x << " , " << p.y << " , " << p.z << " ]";
+    return ost;
+}
+
 Vec3 Vec3::operator-() const {
     return Vec3(-x, -y, -z);
 }

@@ -6,7 +6,10 @@ main: $(OBJ)
 		g++ $^
 
 .cpp.o:
-		g++ -g -std=c++14 -c $<
+		g++ -c $<
+
+Vec3_test: Vec3_test.o Vec3.o
+		g++ $^ && ./a.out
 
 clean:
 		rm -rf *.o *.out

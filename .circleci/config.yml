@@ -2,15 +2,10 @@
 version: 2.1
 # Use a package of configuration called an orb.
 jobs:
-  Vec3_test:
+  build:
     docker:
       - image: gcc:10.2.0
     steps:
       - checkout
+      - run: make util_test
       - run: make Vec3_test
-
-workflows:
-  version: 2
-  test:
-    jobs:
-      - Vec3_test

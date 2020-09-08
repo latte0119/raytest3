@@ -9,3 +9,4 @@ jobs:
       - checkout
       - run: make util_test
       - run: make Vec3_test
+      - run: make Image_test

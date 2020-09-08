@@ -1,4 +1,4 @@
-SRC = Vec3.cpp util.cpp Image.cpp
+SRC = Vec3.cpp util.cpp Image.cpp Ray.cpp
 OBJ = $(SRC:%.cpp=%.o)
 CFLAGS = -g -std=c++14
 
@@ -23,5 +23,7 @@ util_test: util_test.o util.o Vec3.o
 Image_test : Image_test.o $(OBJ)
 		g++ $^ && ./a.out > tmp.ppm
 
+Ray_test: Ray_test.o $(OBJ)
+		g++ $^ && ./a.out
 clean:
 		rm -rf *.o *.out *.ppm *.png

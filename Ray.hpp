@@ -15,8 +15,8 @@ struct Ray {
     Vec3 getDirection() const;
 
    private:
-    Vec3 origin;
-    Vec3 direction;
+    const Vec3 origin;
+    const Vec3 direction;
 };
 
 inline Vec3 Ray::operator()(const double t) const {

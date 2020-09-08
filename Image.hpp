@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <memory>
 #include <vector>
 
@@ -11,7 +12,9 @@ struct Image {
     int getWidth() const;
     int getHeight() const;
     Vec3 getPixel(int, int) const;
-    Vec3 setPixel(int, int, const Vec3&);
+    void setPixel(int, int, const Vec3&);
+    void setPixel(int, int, double, double, double);
+    friend std::ostream& operator<<(std::ostream&, const Image&);
 
    private:
     const int width;
@@ -32,7 +35,12 @@ inline Vec3 Image::getPixel(const int x, const int y) const {
     return pixels[idx];
 }
 
-inline Vec3 Image::setPixel(const int x, const int y, const Vec3& p) {
+inline void Image::setPixel(const int x, const int y, const Vec3& p) {
     const int idx = y * width + x;
     pixels[idx] = p;
+}
+
+inline void Image::setPixel(const int x, const int y, const double r, const double g, const double b) {
+    const int idx = y * width + x;
+    pixels[idx] = Vec3(r, g, b);
 }
